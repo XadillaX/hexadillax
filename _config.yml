@@ -1,0 +1,12 @@
+menu:
+  首页: { id: index, url: / }
+  归档: { id: archives, url: /archives }
+  标签: { id: tags, url: /tags }
+  分类: { id: categories, url: /categories }
+  关于: { id: curriculumvitae, url: /curriculumvitae }
+
+github: XadillaX
+
+background: [ 1.png, 2.jpg, 3.png ]
+
+avatar: /images/avatar.gif

@@ -1,0 +1,38 @@
+<% page.posts.each(function(item){ %>
+<article class="post container">
+    <div class="jumbotron">
+        <h1><a href="<%- config.root %><%- item.path %>" title="<%- item.title %>"><%- item.title %></a></h1>
+
+        <% if(item.description){ %>
+            <p><%- item.description %></p>
+        <% } else if(item.excerpt){ %>
+            <p><%= strip_html(item.excerpt).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
+        <% } else {%>
+            <p><%= strip_html(item.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
+        <% } %>
+
+        <p class="say-title">
+            —— <img src="<%- theme.avatar %>" class="img-circle index-post-avatar" />
+            <a href="<%- config.url %>" target="_blank" title="<%- config.author %>"><%- config.author %></a>
+            于<%- item.date.format(config.date_format) %>自豪地<% if(item.tags && item.tags.length){ %>以 <%- list_tags(item.tags, { show_count: false, class: 'article-tag', style: ""}) %> <% } %>唠嗑
+        </p>
+    </div>
+</article>
+<% }); %>
+
+<% if (page.total > 1){ %>
+<div class="container pagination-div">
+    <div class="well">
+    <%- paginator({
+      prev_text: '&laquo; Prev',
+      next_text: 'Next &raquo;'
+    }) %>
+    </div>
+</div>
+<% } %>
+
+<script>
+$(function() {
+    $("article:first").addClass("first-post");
+});
+</script>
