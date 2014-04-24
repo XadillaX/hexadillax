@@ -1,4 +1,4 @@
-hexadillax
+HeXadillaX
 ==========
 
-A hexo blogging system theme.
+It's another version of `GhoSadillaX`, the theme of `Ghost`.
