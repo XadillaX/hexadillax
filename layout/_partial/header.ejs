@@ -61,6 +61,8 @@ if(is_archive()) {
     <script src="<%- config.root %>js/jquery-2.1.0.min.js"></script>
     <script src="<%- config.root %>js/jquery.backstretch.min.js"></script>
     <script src="<%- config.root %>bootstrap/js/bootstrap.min.js"></script>
+    <script src="<%- config.root %>js/headroom.min.js"></script>
+    <script src="<%- config.root %>js/jquery.headroom.min.js"></script> 
     <script src="<%- config.root %>js/common.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -98,8 +100,9 @@ if(is_archive()) {
     </nav>
     
     <script>
+    var backRoot = "<%- theme['background-root'] %>";
     var backArray = [ <% for(var i = 0; i < theme.background.length; i++) { %>"<%- theme.background[i] %>", <% } %> ];
-    console.log(backArray);
+    //console.log(backArray);
         
     $(function() {
         // page-id...

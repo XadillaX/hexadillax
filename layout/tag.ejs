@@ -1,0 +1,58 @@
+<%
+var title = '';
+var icon = '';
+if(page.tag) {
+    title = page.tag;
+    icon = 'tag';
+}
+%>
+<div class="container archive-body">
+    <div class="row">
+        <div class="col-xs-3 well">
+            <div class="archive-title" >
+                <h2 class="tag-icon"><%- page.tag %></h2>
+                <div>
+                    <a href="<%- config.root %>tags"><< 返回标签列表</a> 
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-9" id="tag-list-body">
+            <% page.posts.each(function(item) { %>
+            <article class="post">
+                <div class="jumbotron">
+                    <h1><a href="<%- config.root %><%- item.path %>" title="<%- item.title %>"><%- item.title %></a></h1>
+
+                    <% if(item.description){ %>
+                        <p><%- item.description %></p>
+                    <% } else if(item.excerpt){ %>
+                        <p><%= strip_html(item.excerpt).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
+                    <% } else {%>
+                        <p><%= strip_html(item.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
+                    <% } %>
+
+                    <p class="say-title">
+                        —— <img src="<%- theme.avatar %>" class="img-circle index-post-avatar" />
+                        <a href="<%- config.url %>" target="_blank" title="<%- config.author %>"><%- config.author %></a>
+                        于<%- item.date.format(config.date_format) %>自豪地<% if(item.tags && item.tags.length){ %>以 <%- list_tags(item.tags, { show_count: false, class: 'article-tag', style: ""}) %> <% } %>唠嗑
+                    </p>
+                </div>
+            </article>
+            <% }); %>
+            
+            <% if (page.total > 1){ %>
+            <div class="pagination-div">
+                <div class="well">
+                <%- paginator({
+                  prev_text: '&laquo; Prev',
+                  next_text: 'Next &raquo;'
+                }) %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+        
+    <div class="col-xs-19 all-list-box">
+    </div>
+</div>
