@@ -29,4 +29,6 @@ $(function() {
             $(this).css("text-align", "center");
         }
     });
+
+    $(".post-body img").addClass("img-thumbnail img-responsive");
 });
