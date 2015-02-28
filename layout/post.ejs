@@ -3,9 +3,7 @@
         <h1><%- page.title %></h1>
         
         <div class="time-info">
-发表于:<time datetime="<%= date_xml(page.date) %>" itemprop="datePublished"><%= page.date.format(config.date_format) %></time>,
-<% if (page.updated!=null) { %>更新于:<time datetime="<%= date_xml(page.updated) %>" itemprop="dateModified"><%= page.updated.format(config.date_format) %></time>,
-<% } %>By <a href="<%= config.url %>" title="<%= config.author %>"><%= config.author %></a>
+发表于:<time datetime="<%= date_xml(page.date) %>" itemprop="datePublished"><%= page.date.format(config.date_format) %></time>，<% if (page.updated!=null) { %>更新于:<time datetime="<%= date_xml(page.updated) %>" itemprop="dateModified"><%= page.updated.format(config.date_format) %></time>，<% } %>By <a href="<%= config.url %>" title="<%= config.author %>"><%= config.author %></a>
         </div>
         
         <div class="post-body-inner">
