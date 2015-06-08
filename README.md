@@ -36,3 +36,12 @@ title: categories
 
 Register your own [duoshuo](http://dev.duoshuo.com/docs/501e6ce1cff715f71800000d) account and replace `duoshuo short_name` in `_config.yml`.
 
+### 百度统计
+
+向 `_config.yml` 配置文件添加`baidu_analytics: 你的统计ID`
+
+### 单篇文章开启 Mathjax
+
+向 `_config.yml` 文章源码文件头部添加 `mathjax: true`
+
+

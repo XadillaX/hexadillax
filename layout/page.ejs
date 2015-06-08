@@ -13,6 +13,9 @@
             </div>    
             <%- page.content %>
             
+			<% if (page.mathjax){ %>
+			<%- partial('_partial/mathjax') %>
+			<% } %>
             <%- partial('_partial/comment') %>
         </div>
     </div>
